@@ -59,6 +59,12 @@ app.put('/cars/:id', (req, res) => {
     res.send(cars);
 })
 
+// DELETE
+app.delete('/cars/:id', (req, res) => {
+    const carIndex = req.params.id - 1;
+    cars.splice(carIndex, 1);
+    res.send(cars);
+})
 
 app.listen(port, () => {
     console.log(`We're live on http://localhost:${port}`)
