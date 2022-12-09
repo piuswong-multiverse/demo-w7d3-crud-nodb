@@ -49,6 +49,15 @@ app.post('/cars', (req, res) => {
     res.send(cars);
 })
 
+// PUT -- Update a single specific car in the data
+app.put('/cars/:id', (req, res) => {
+    // get the car data and update the car array
+    const updatedCar = req.body; // this gets data from the body of the request
+    const carIndex = req.params.id - 1;  // this gets the parameter
+    cars[carIndex] = updatedCar;
+    // send out the response (all of the cars)
+    res.send(cars);
+})
 
 
 app.listen(port, () => {
